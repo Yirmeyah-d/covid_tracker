@@ -59,7 +59,7 @@
             function waitForActivation(serviceWorker) {
               serviceWorker.addEventListener('statechange', () => {
                 if (serviceWorker.state == 'activated') {
-                  console.log('Installed new service worker.');
+                  console.log('Installed new src.service worker.');
                   loadMainDartJs();
                 }
               });
@@ -70,23 +70,23 @@
               waitForActivation(reg.installing || reg.waiting);
             } else if (!reg.active.scriptURL.endsWith(serviceWorkerVersion)) {
               // When the app updates the serviceWorkerVersion changes, so we
-              // need to ask the service worker to update.
-              console.log('New service worker available.');
+              // need to ask the src.service worker to update.
+              console.log('New src.service worker available.');
               reg.update();
               waitForActivation(reg.installing);
             } else {
-              // Existing service worker is still good.
-              console.log('Loading app from service worker.');
+              // Existing src.service worker is still good.
+              console.log('Loading app from src.service worker.');
               loadMainDartJs();
             }
           });
 
-        // If service worker doesn't succeed in a reasonable amount of time,
+        // If src.service worker doesn't succeed in a reasonable amount of time,
         // fallback to plaint <script> tag.
         setTimeout(() => {
           if (!scriptLoaded) {
             console.warn(
-              'Failed to load app from service worker. Falling back to plain <script> tag.',
+              'Failed to load app from src.service worker. Falling back to plain <script> tag.',
             );
             loadMainDartJs();
           }
