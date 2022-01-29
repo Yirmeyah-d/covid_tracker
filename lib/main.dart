@@ -2,8 +2,10 @@ import 'package:covid_tracker/src/features/settings/settings_controller.dart';
 import 'package:covid_tracker/src/features/settings/settings_service.dart';
 import 'package:flutter/material.dart';
 import 'src/app.dart';
+import 'injection_container.dart' as di;
 
 void main() async {
+  await di.init();
   // Set up the SettingsController, which will glue user settings to multiple
   // Flutter Widgets.
   final settingsController = SettingsController(SettingsService());

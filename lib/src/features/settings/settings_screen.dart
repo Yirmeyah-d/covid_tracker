@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'settings_controller.dart';
 
+//TODO : using thins features and refactoring it to follow the clean architecture
 /// Displays the various settings that can be customized by the user.
 ///
 /// When a user changes a setting, the SettingsController is updated and
