@@ -25,8 +25,6 @@ class GlobalLocalDataSourceImpl implements GlobalLocalDataSource {
   Future<GlobalStatModel> getLastGlobalStat() {
     final jsonString = sharedPreferences.getString(CACHED_GLOBAL_STAT);
     if (jsonString != null) {
-      print(jsonString);
-      //TODO : fix error fromJson/ toJson
       return Future.value(GlobalStatModel.fromJson(jsonDecode(jsonString)));
     } else {
       throw CacheException();

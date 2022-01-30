@@ -6,6 +6,5 @@ abstract class GlobalEvent extends Equatable {
 
 class GetGlobalStatEvent extends GlobalEvent {
   @override
-  // TODO: implement props
   List<Object?> get props => [];
 }

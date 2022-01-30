@@ -33,13 +33,15 @@ class GlobalStatModel extends GlobalStat {
 
   Map<String, dynamic> toJson() {
     return {
-      'newConfirmed': newConfirmed,
-      'totalConfirmed': totalConfirmed,
-      'newDeaths': newDeaths,
-      'totalDeaths': totalDeaths,
-      'newRecovered': newRecovered,
-      'totalRecovered': totalRecovered,
-      'date': date.toIso8601String(),
+      "Global": {
+        'NewConfirmed': newConfirmed,
+        'TotalConfirmed': totalConfirmed,
+        'NewDeaths': newDeaths,
+        'TotalDeaths': totalDeaths,
+        'NewRecovered': newRecovered,
+        'TotalRecovered': totalRecovered,
+      },
+      'Date': date.toIso8601String(),
     };
   }
 }

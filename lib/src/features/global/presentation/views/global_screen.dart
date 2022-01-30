@@ -22,8 +22,6 @@ class _GlobalScreenState extends State<GlobalScreen> {
     super.initState();
   }
 
-  //TODO : Add a scroll that refresh after each scroll.
-
   @override
   Widget build(BuildContext context) {
     return Column(
