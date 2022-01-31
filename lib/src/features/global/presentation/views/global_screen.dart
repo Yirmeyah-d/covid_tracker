@@ -14,8 +14,6 @@ class GlobalScreen extends StatefulWidget {
 }
 
 class _GlobalScreenState extends State<GlobalScreen> {
-  late Future<GlobalStatModel> globalStat;
-
   @override
   void initState() {
     BlocProvider.of<GlobalBloc>(context).add(GetGlobalStatEvent());

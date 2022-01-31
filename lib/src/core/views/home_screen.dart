@@ -1,11 +1,12 @@
 import 'package:covid_tracker/src/core/styles/colors.dart';
-import 'package:covid_tracker/src/core/views/country_screen.dart';
+import 'package:covid_tracker/src/features/country/presentation/bloc/country_bloc.dart';
+import 'package:covid_tracker/src/features/country/presentation/views/country_screen.dart';
 import 'package:covid_tracker/src/features/global/presentation/bloc/global_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../injection_container.dart';
-import '../../features/global/presentation/view/global_screen.dart';
+import '../../features/global/presentation/views/global_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -31,8 +32,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => serviceLocator<GlobalBloc>(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<GlobalBloc>(create: (_) => serviceLocator<GlobalBloc>()),
+        BlocProvider<CountryBloc>(create: (_) => serviceLocator<CountryBloc>()),
+      ],
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: kPrimaryColor,

@@ -1,4 +1,11 @@
 import 'package:covid_tracker/src/core/network/network_info.dart';
+import 'package:covid_tracker/src/features/country/data/data_sources/country_local_data_source.dart';
+import 'package:covid_tracker/src/features/country/data/data_sources/country_remote_data_source.dart';
+import 'package:covid_tracker/src/features/country/data/repositories/country_repository_impl.dart';
+import 'package:covid_tracker/src/features/country/domain/repositories/country_repository.dart';
+import 'package:covid_tracker/src/features/country/domain/use_cases/get_country_list.dart';
+import 'package:covid_tracker/src/features/country/domain/use_cases/get_country_stat.dart';
+import 'package:covid_tracker/src/features/country/presentation/bloc/country_bloc.dart';
 import 'package:covid_tracker/src/features/global/data/data_sources/global_local_data_source.dart';
 import 'package:covid_tracker/src/features/global/data/data_sources/global_remote_data_source.dart';
 import 'package:covid_tracker/src/features/global/data/repositories/global_repository_impl.dart';
@@ -13,7 +20,7 @@ import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 final serviceLocator = GetIt.instance;
 Future<void> init() async {
-  //! Features - NumberTrivia
+  //! Features - Global
   //Bloc
   serviceLocator.registerFactory(
     () => GlobalBloc(
@@ -38,6 +45,38 @@ Future<void> init() async {
   );
   serviceLocator.registerLazySingleton<GlobalLocalDataSource>(
     () => GlobalLocalDataSourceImpl(
+      sharedPreferences: serviceLocator(),
+    ),
+  );
+
+  //! Features - Country
+  //Bloc
+  serviceLocator.registerFactory(
+    () => CountryBloc(
+      getCountryStat: serviceLocator(),
+      getCountryList: serviceLocator(),
+    ),
+  );
+  // Use cases
+  serviceLocator.registerLazySingleton(() => GetCountryStat(serviceLocator()));
+  serviceLocator.registerLazySingleton(() => GetCountryList(serviceLocator()));
+
+  // Repository
+  serviceLocator.registerLazySingleton<CountryRepository>(
+    () => CountryRepositoryImpl(
+      remoteDataSource: serviceLocator(),
+      localDataSource: serviceLocator(),
+      networkInfo: serviceLocator(),
+    ),
+  );
+  // Data Sources
+  serviceLocator.registerLazySingleton<CountryRemoteDataSource>(
+    () => CountryRemoteDataSourceImpl(
+      client: serviceLocator(),
+    ),
+  );
+  serviceLocator.registerLazySingleton<CountryLocalDataSource>(
+    () => CountryLocalDataSourceImpl(
       sharedPreferences: serviceLocator(),
     ),
   );
