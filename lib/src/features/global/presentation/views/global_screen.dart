@@ -31,7 +31,7 @@ class _GlobalScreenState extends State<GlobalScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 const Text(
-                  "Global Corona Virus Cases",
+                  "Cas Mondiaux de Covid-19",
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

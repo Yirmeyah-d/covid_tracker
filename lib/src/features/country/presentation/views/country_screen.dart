@@ -56,7 +56,7 @@ class _CountryScreenState extends State<CountryScreen> {
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 4, vertical: 6),
                 child: Text(
-                  "Type the country name",
+                  "Entrée le nom du pays",
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

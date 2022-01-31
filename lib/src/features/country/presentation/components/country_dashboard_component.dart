@@ -18,18 +18,18 @@ class CountryDashboard extends StatelessWidget {
     return Column(
       children: <Widget>[
         buildCard(
-          "CONFIRMED",
+          "CONFIRMÉ ",
           countryStat[countryStat.length - 1].confirmed,
           kConfirmedColor,
-          "ACTIVE",
+          "ACTIF",
           countryStat[countryStat.length - 1].active,
           kActiveColor,
         ),
         buildCard(
-          "RECOVERED",
+          "RÉTABLIE",
           countryStat[countryStat.length - 1].recovered,
           kRecoveredColor,
-          "DEATH",
+          "MORT",
           countryStat[countryStat.length - 1].death,
           kDeathColor,
         ),
@@ -154,28 +154,28 @@ class CountryDashboard extends StatelessWidget {
 
     return [
       charts.Series<TimeSeriesCases, DateTime>(
-        id: 'Confirmed',
+        id: 'Confirmé',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(kConfirmedColor),
         domainFn: (TimeSeriesCases cases, _) => cases.time,
         measureFn: (TimeSeriesCases cases, _) => cases.cases,
         data: confirmedData,
       ),
       charts.Series<TimeSeriesCases, DateTime>(
-        id: 'Active',
+        id: 'Actif',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(kActiveColor),
         domainFn: (TimeSeriesCases cases, _) => cases.time,
         measureFn: (TimeSeriesCases cases, _) => cases.cases,
         data: activeData,
       ),
       charts.Series<TimeSeriesCases, DateTime>(
-        id: 'Recovered',
+        id: 'Rétablie',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(kRecoveredColor),
         domainFn: (TimeSeriesCases cases, _) => cases.time,
         measureFn: (TimeSeriesCases cases, _) => cases.cases,
         data: recoveredData,
       ),
       charts.Series<TimeSeriesCases, DateTime>(
-        id: 'Death',
+        id: 'Mort',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(kDeathColor),
         domainFn: (TimeSeriesCases cases, _) => cases.time,
         measureFn: (TimeSeriesCases cases, _) => cases.cases,

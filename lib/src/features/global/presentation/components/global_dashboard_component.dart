@@ -15,13 +15,13 @@ class GlobalDashboard extends StatelessWidget {
     return Column(
       children: <Widget>[
         buildCard(
-          "CONFIRMED",
+          "CONFIRMÉ",
           globalStat.totalConfirmed,
           globalStat.newConfirmed,
           kConfirmedColor,
         ),
         buildCard(
-          "ACTIVE",
+          "ACTIF",
           globalStat.totalConfirmed -
               globalStat.totalRecovered -
               globalStat.totalDeaths,
@@ -31,13 +31,13 @@ class GlobalDashboard extends StatelessWidget {
           kActiveColor,
         ),
         buildCard(
-          "RECOVERED",
+          "RÉTABLIE",
           globalStat.totalRecovered,
           globalStat.newRecovered,
           kRecoveredColor,
         ),
         buildCard(
-          "DEATH",
+          "MORT",
           globalStat.totalDeaths,
           globalStat.newDeaths,
           kDeathColor,
@@ -45,7 +45,8 @@ class GlobalDashboard extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
           child: Text(
-            "Statistics updated " + timeago.format(globalStat.date),
+            "Statistiques mis à jours il y a " +
+                timeago.format(globalStat.date),
             style: const TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
