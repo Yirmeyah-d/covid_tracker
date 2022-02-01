@@ -31,7 +31,6 @@ class GlobalRepositoryImpl implements GlobalRepository {
     } else {
       try {
         final localGlobalStat = await localDataSource.getLastGlobalStat();
-        print(localGlobalStat);
         return Right(localGlobalStat);
       } on CacheException {
         return Left(CacheFailure());

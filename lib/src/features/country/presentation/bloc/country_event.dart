@@ -14,6 +14,5 @@ class GetCountryStatEvent extends CountryEvent {
 
 class GetCountryListEvent extends CountryEvent {
   @override
-  // TODO: implement props
   List<Object?> get props => [];
 }

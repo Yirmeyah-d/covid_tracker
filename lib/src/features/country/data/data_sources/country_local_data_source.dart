@@ -30,10 +30,12 @@ class CountryLocalDataSourceImpl implements CountryLocalDataSource {
 
   @override
   Future<List<CountryStatModel>> getLastCountryStat() {
-    final jsonString = sharedPreferences.getString(CACHED_COUNTRY_STAT);
-    if (jsonString != null) {
-      return Future.value((jsonDecode(jsonString) as List)
-          .map((country) => CountryStatModel.fromJson(country))
+    final jsonCountryStatList =
+        sharedPreferences.getStringList(CACHED_COUNTRY_STAT);
+    if (jsonCountryStatList != null) {
+      return Future.value(jsonCountryStatList
+          .map((countryStat) =>
+              CountryStatModel.fromJson(jsonDecode(countryStat)))
           .toList());
     } else {
       throw CacheException();
@@ -53,10 +55,11 @@ class CountryLocalDataSourceImpl implements CountryLocalDataSource {
 
   @override
   Future<List<CountryModel>> getLastCountryList() {
-    final jsonString = sharedPreferences.getString(CACHED_COUNTRY_LIST);
-    if (jsonString != null) {
-      return Future.value((jsonDecode(jsonString) as List)
-          .map((country) => CountryModel.fromJson(country))
+    final jsonCountryList =
+        sharedPreferences.getStringList(CACHED_COUNTRY_LIST);
+    if (jsonCountryList != null) {
+      return Future.value(jsonCountryList
+          .map((country) => CountryModel.fromJson(jsonDecode(country)))
           .toList());
     } else {
       throw CacheException();

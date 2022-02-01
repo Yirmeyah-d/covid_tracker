@@ -13,9 +13,6 @@ class CountryScreen extends StatefulWidget {
   _CountryScreenState createState() => _CountryScreenState();
 }
 
-// TODO: Fix error when country choose is St martin
-// TODO: Test cache functionnality
-
 class _CountryScreenState extends State<CountryScreen> {
   final TextEditingController _typeAheadController = TextEditingController();
 
@@ -123,7 +120,11 @@ class _CountryScreenState extends State<CountryScreen> {
                 } else if (state is CountryLoading) {
                   return const CountryDashboardLoading(inputTextLoading: false);
                 } else if (state is CountryLoaded) {
-                  return CountryDashboard(countryStat: state.countryStat);
+                  if (state.countryStat.isNotEmpty) {
+                    return CountryDashboard(countryStat: state.countryStat);
+                  } else {
+                    return NoDataCard();
+                  }
                 } else {
                   return const CountryDashboardLoading(inputTextLoading: false);
                 }
