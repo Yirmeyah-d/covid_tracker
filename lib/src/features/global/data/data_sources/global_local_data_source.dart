@@ -11,6 +11,8 @@ abstract class GlobalLocalDataSource {
   /// Throws [CacheException] if no cached data is present.
   Future<GlobalStatModel> getLastGlobalStat();
 
+  /// Add in the cache the [GlobalStatModel]
+  ///
   Future<void> cacheGlobalStat(GlobalStatModel globalStatToCache);
 }
 

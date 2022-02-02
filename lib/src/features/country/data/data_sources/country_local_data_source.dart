@@ -12,10 +12,18 @@ abstract class CountryLocalDataSource {
   /// Throws [CacheException] if no cached data is present.
   Future<List<CountryStatModel>> getLastCountryStat();
 
+  /// Add in the cache the [CountryStatModel]
+  ///
   Future<void> cacheCountryStat(List<CountryStatModel> countryStatToCache);
 
+  /// Gets the cached [CountryModel] which was gotten the last time
+  /// the user had an internet connection.
+  ///
+  /// Throws [CacheException] if no cached data is present.
   Future<List<CountryModel>> getLastCountryList();
 
+  /// Add in the cache the [CountryModel]
+  ///
   Future<void> cacheCountryList(List<CountryModel> countryListToCache);
 }
 

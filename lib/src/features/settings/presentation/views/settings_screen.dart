@@ -1,3 +1,4 @@
+import 'package:covid_tracker/src/core/styles/colors.dart';
 import 'package:flutter/material.dart';
 
 import 'settings_controller.dart';
@@ -18,7 +19,9 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: kPrimaryColor,
         title: const Text('Settings'),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
