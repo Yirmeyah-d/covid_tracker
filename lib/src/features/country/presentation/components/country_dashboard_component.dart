@@ -77,7 +77,7 @@ class CountryDashboard extends StatelessWidget {
                   style: TextStyle(
                     color: leftColor,
                     fontWeight: FontWeight.bold,
-                    fontSize: 28,
+                    fontSize: 20,
                   ),
                 ),
               ],
@@ -111,7 +111,7 @@ class CountryDashboard extends StatelessWidget {
                   style: TextStyle(
                     color: rightColor,
                     fontWeight: FontWeight.bold,
-                    fontSize: 28,
+                    fontSize: 20,
                   ),
                 ),
               ],
