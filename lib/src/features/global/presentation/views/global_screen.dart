@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:covid_tracker/src/features/global/presentation/components/components.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+//TODO: implement some kind of animation to the global dashboard at refresh or launching
 class GlobalScreen extends StatefulWidget {
   const GlobalScreen({Key? key}) : super(key: key);
 
