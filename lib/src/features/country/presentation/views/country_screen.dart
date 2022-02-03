@@ -21,7 +21,7 @@ class _CountryScreenState extends State<CountryScreen> {
     super.initState();
     _typeAheadController.text = "United States of America";
     BlocProvider.of<CountryBloc>(context)
-        .add(const GetCountryStatEvent("united-states"));
+        .add(const GetCountryStatEvent(slug: "united-states"));
   }
 
   List<String> _getSuggestions(List<Country>? countryList, String query) {
@@ -105,7 +105,7 @@ class _CountryScreenState extends State<CountryScreen> {
                         .firstWhere((element) => element.country == suggestion)
                         .slug;
                     BlocProvider.of<CountryBloc>(context)
-                        .add(GetCountryStatEvent(slug));
+                        .add(GetCountryStatEvent(slug: slug));
                   });
                 },
               ),

@@ -6,7 +6,7 @@ abstract class CountryEvent extends Equatable {
 
 class GetCountryStatEvent extends CountryEvent {
   final String slug;
-  const GetCountryStatEvent(this.slug);
+  const GetCountryStatEvent({required this.slug});
 
   @override
   List<Object> get props => [slug];
