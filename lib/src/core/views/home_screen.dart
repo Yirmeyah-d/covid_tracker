@@ -43,6 +43,19 @@ class _HomeScreenState extends State<HomeScreen> {
           title: const Text('COVID-19 Tracker'),
           elevation: 0,
           centerTitle: true,
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 15.0),
+              child: IconButton(
+                icon: Icon(
+                  Icons.settings,
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/settings');
+                },
+              ),
+            )
+          ],
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

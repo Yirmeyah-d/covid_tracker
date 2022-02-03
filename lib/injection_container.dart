@@ -12,6 +12,12 @@ import 'package:covid_tracker/src/features/global/data/repositories/global_repos
 import 'package:covid_tracker/src/features/global/domain/repositories/global_repository.dart';
 import 'package:covid_tracker/src/features/global/domain/use_cases/get_global_stat.dart';
 import 'package:covid_tracker/src/features/global/presentation/bloc/global_bloc.dart';
+import 'package:covid_tracker/src/features/settings/data/data_sources/settings_local_data_source.dart';
+import 'package:covid_tracker/src/features/settings/data/repositories/settings_repository_impl.dart';
+import 'package:covid_tracker/src/features/settings/domain/repositories/settings_repository.dart';
+import 'package:covid_tracker/src/features/settings/domain/use_cases/load_theme_mode.dart';
+import 'package:covid_tracker/src/features/settings/domain/use_cases/update_theme_mode.dart';
+import 'package:covid_tracker/src/features/settings/presentation/bloc/settings_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -77,6 +83,31 @@ Future<void> init() async {
   );
   serviceLocator.registerLazySingleton<CountryLocalDataSource>(
     () => CountryLocalDataSourceImpl(
+      sharedPreferences: serviceLocator(),
+    ),
+  );
+
+  //! Features - Settings
+  //Bloc
+  serviceLocator.registerFactory(
+    () => SettingsBloc(
+      loadThemeMode: serviceLocator(),
+      updateThemeMode: serviceLocator(),
+    ),
+  );
+  // Use cases
+  serviceLocator.registerLazySingleton(() => UpdateThemeMode(serviceLocator()));
+  serviceLocator.registerLazySingleton(() => LoadThemeMode(serviceLocator()));
+
+  // Repository
+  serviceLocator.registerLazySingleton<SettingsRepository>(
+    () => SettingsRepositoryImpl(
+      localDataSource: serviceLocator(),
+    ),
+  );
+  // Data Sources
+  serviceLocator.registerLazySingleton<SettingsLocalDataSource>(
+    () => SettingsLocalDataSourceImpl(
       sharedPreferences: serviceLocator(),
     ),
   );

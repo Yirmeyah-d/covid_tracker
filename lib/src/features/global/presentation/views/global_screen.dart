@@ -1,10 +1,7 @@
-import 'package:covid_tracker/src/features/global/data/models/global_stat_model.dart';
 import 'package:covid_tracker/src/features/global/presentation/bloc/global_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:covid_tracker/src/features/global/presentation/components/components.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../../injection_container.dart';
 
 class GlobalScreen extends StatefulWidget {
   const GlobalScreen({Key? key}) : super(key: key);

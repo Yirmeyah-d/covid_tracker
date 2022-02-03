@@ -1,5 +1,4 @@
 import 'package:covid_tracker/src/features/country/domain/entities/country.dart';
-import 'package:covid_tracker/src/features/country/domain/entities/country_stat.dart';
 import 'package:covid_tracker/src/features/country/presentation/bloc/country_bloc.dart';
 import 'package:covid_tracker/src/features/country/presentation/components/components.dart';
 import 'package:flutter/material.dart';
