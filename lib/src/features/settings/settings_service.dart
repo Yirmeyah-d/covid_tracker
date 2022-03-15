@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// A service that stores and retrieves user settings.
+/// A src.service that stores and retrieves user settings.
 ///
 /// By default, this class does not persist user settings. If you'd like to
 /// persist the user settings locally, use the shared_preferences package. If
